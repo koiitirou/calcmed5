@@ -1,0 +1,17 @@
+{
+    "appTitle":   "医療計算ツール",
+    "yes" :       "はい",
+    "no" :        "いいえ",
+    "female":     "女性",
+    "male":       "男性",
+    "sex":"性別",
+    "age":"年齢",
+    "weight":"体重",
+    "cre":"血清クレアチニン値",
+    "ccr":"Ccr, クレアチニンクリアランス",
+    "egfr":"eGFR, 推算糸球体濾過量",
+    "gfrcat":"CKDにおけるGFR区分",
+    "inputs":"入力",
+    "results":"結果",
+    "years":"歳"
+}

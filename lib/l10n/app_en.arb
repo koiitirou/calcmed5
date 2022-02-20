@@ -1,0 +1,18 @@
+{
+     "@@locale": "en",
+    "appTitle": "Medical Calculator",
+    "yes" : "Yes",
+    "no" :"No",
+    "female": "female",
+    "male": "male",
+    "sex":"Sex",
+    "age":"Age",
+    "weight":"Weight",
+    "cre":"Creatinine",
+    "ccr":"Ccr, Creatinine clearance",
+    "egfr":"eGFR, Estimated glomerular filtration rate",
+    "gfrcat":"GFR categories in CKD",
+    "inputs":"Inputs",
+    "results":"Results",
+    "years":"years"
+}
