@@ -141,7 +141,7 @@ class _Bmi_calState extends State<Bmi_cal> {
                           _calculateIMC),
                       FormTmp1(
                           heightController,
-                          '身長',
+                          AppLocalizations.of(context)!.height,
                           AppLocalizations.of(context)!.valMessage,
                           '000.0',
                           'cm',
@@ -150,7 +150,8 @@ class _Bmi_calState extends State<Bmi_cal> {
                       InpPadding(AppLocalizations.of(context)!.results),
                       ResContainer2(
                           'BMI(Body Mass Index)', _imcString, '  kg/㎡'),
-                      ResContainer1('判定', '$_infoText'),
+                      ResContainer1(
+                          AppLocalizations.of(context)!.category, '$_infoText'),
                     ]),
               ),
             ),

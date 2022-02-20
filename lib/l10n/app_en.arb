@@ -21,12 +21,25 @@
     "amountDrug":"Amount of drug",
     "desiredDose1":"Desired dose",
     "desiredDose2":"Desired dose",
-    "infusionRate":"Infusion rate",
-    "infusionDose":"Infusion dose",
+    "infusionRate1":"Infusion rate",
+    "infusionRate2":"Infusion rate",
     "requiredAmount":"Required amount/day",
     "requiredBag":"Required bag/day",
     "mlDay":"ml/day",
     "bagDay":"bag/day",
-    "valMessage":"Invalid value"
+    "valMessage":"Invalid value",
+    "references":"References",
+    "formula":"Formula",
+    "children":"Child",
+    "adult":"Adult",
+    "volumeBag":"Volume per bag",
+    "timeBag":"Infusion time per bag",
+    "hr":"hr",
+    "dropM":"Drop per minute",
+    "dropT":"Drop per 10 sec",
+    "drop":"Drop",
+    "drop1":"d",
+    "bag":"Bag"
+
 
 }

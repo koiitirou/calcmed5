@@ -38,12 +38,12 @@ class Gam_cal extends StatefulWidget {
 }
 
 class _Gam_calState extends State<Gam_cal> {
-  TextEditingController _fIt1 = TextEditingController(text: '50.0');
-  TextEditingController _fIt2 = TextEditingController();
-  TextEditingController _fIt3 = TextEditingController();
-  TextEditingController _fIt4 = TextEditingController();
-  TextEditingController _fIt5 = TextEditingController();
-  TextEditingController _fIt6 = TextEditingController();
+  final TextEditingController _fIt1 = TextEditingController(text: '50.0');
+  final TextEditingController _fIt2 = TextEditingController();
+  final TextEditingController _fIt3 = TextEditingController();
+  final TextEditingController _fIt4 = TextEditingController();
+  final TextEditingController _fIt5 = TextEditingController();
+  final TextEditingController _fIt6 = TextEditingController();
 
   List<bool> _sc1 = List.from(_sc0);
   List<bool> _tc1 = List.from(_tc0);
@@ -203,7 +203,7 @@ class _Gam_calState extends State<Gam_cal> {
             Expanded(
               //key: _formKey,
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: [
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   //MySelectRow3func1(_tc1, '総ビリルビン値', '>3mg/dL', '2-3mg/dL',
@@ -254,11 +254,11 @@ class _Gam_calState extends State<Gam_cal> {
                                 _calculate1),
                             Transform.rotate(
                                 angle: math.pi / 2,
-                                child: Icon(
+                                child: const Icon(
                                   Icons.navigate_next,
                                 )),
                             ResContainer2(
-                                AppLocalizations.of(context)!.desiredDose2,
+                                AppLocalizations.of(context)!.infusionRate1,
                                 _fSg4,
                                 'ml/hr'),
                             ResContainer2(
@@ -284,11 +284,11 @@ class _Gam_calState extends State<Gam_cal> {
                                 _calculate1),
                             Transform.rotate(
                                 angle: math.pi / 2,
-                                child: Icon(
+                                child: const Icon(
                                   Icons.navigate_next,
                                 )),
                             ResContainer2(
-                                AppLocalizations.of(context)!.desiredDose1,
+                                AppLocalizations.of(context)!.infusionRate2,
                                 _fSg1,
                                 'µg/kg/min'),
                             ResContainer2(

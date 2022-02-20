@@ -145,7 +145,8 @@ class _Ldl_calState extends State<Ldl_cal> {
                   InpPadding(AppLocalizations.of(context)!.results),
                   ResContainer2(
                       'LDLコレステロール(Friedewald推定式)', _outputString, '  mg/dL'),
-                  ResContainer1('判定', '$_infoText'),
+                  ResContainer1(
+                      AppLocalizations.of(context)!.category, '$_infoText'),
                 ],
               ),
             ),

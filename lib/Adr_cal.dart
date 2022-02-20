@@ -237,7 +237,8 @@ class _Adr_calState extends State<Adr_cal> {
                     InpPadding(AppLocalizations.of(context)!.results),
 
                     ResContainer2('A-DROPスコア', _fSg1, '  点'),
-                    ResContainer2('判定', _fSg2, ''),
+                    ResContainer2(
+                        AppLocalizations.of(context)!.category, _fSg2, ''),
 
                     //ResContainer2('必要な点滴の本(袋)数/1日', _fSg5, '  本(袋)'),
                     //ResContainer('GFR区分', _in_foText),
