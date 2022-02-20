@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -77,8 +84,26 @@ class _Bmi_calState extends State<Bmi_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       /* appBar: AppBar(
         title: Text(Cc1s.Cc1_items[thisRouteId].jp_name),
@@ -106,19 +131,32 @@ class _Bmi_calState extends State<Bmi_cal> {
                 child: ListView(
                     padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                     children: <Widget>[
-                      InpPadding('入力'),
-                      FormTmp1(weightController, '体重', '数値を入力して下さい', '00.0',
-                          'kg', _calculateIMC),
-                      FormTmp1(heightController, '身長', '数値を入力して下さい', '000.0',
-                          'cm', _calculateIMC),
+                      InpPadding(AppLocalizations.of(context)!.inputs),
+                      FormTmp1(
+                          weightController,
+                          AppLocalizations.of(context)!.weight,
+                          AppLocalizations.of(context)!.valMessage,
+                          '00.0',
+                          'kg',
+                          _calculateIMC),
+                      FormTmp1(
+                          heightController,
+                          '身長',
+                          AppLocalizations.of(context)!.valMessage,
+                          '000.0',
+                          'cm',
+                          _calculateIMC),
                       //CalcButton(_formKey, _calculateIMC, '計算'),
-                      InpPadding('結果'),
+                      InpPadding(AppLocalizations.of(context)!.results),
                       ResContainer2(
                           'BMI(Body Mass Index)', _imcString, '  kg/㎡'),
                       ResContainer1('判定', '$_infoText'),
                     ]),
               ),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

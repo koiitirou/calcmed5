@@ -170,8 +170,8 @@ class _MyHomePageState extends State<MyHomePage>
               label: '',
             ),
           ]),
+      bottomSheet: adContainer2,
     );
-    // bottomSheet: adContainer2);
   }
 }
 
@@ -265,8 +265,8 @@ class _AllPageState extends State<AllPage> {
         ),
         ConstrainedBox(
           constraints: BoxConstraints.expand(
-              //height: Banner1.size.height.toDouble() + adPadding1 * 2),
-              height: 0),
+              height: Banner1.size.height.toDouble() + adPadding1 * 2),
+          //height: 0),
         )
         //con1
       ],
@@ -344,8 +344,8 @@ class _FavoritePageState extends State<FavoritePage> {
         ),
         ConstrainedBox(
           constraints: BoxConstraints.expand(
-              //height: Banner1.size.height.toDouble() + adPadding1 * 2),
-              height: 0),
+              height: Banner1.size.height.toDouble() + adPadding1 * 2),
+          //height: 0),
         )
         //con1
       ],
@@ -452,8 +452,8 @@ class _CategoryPageState extends State<CategoryPage> {
         ),
         ConstrainedBox(
           constraints: BoxConstraints.expand(
-              //height: Banner1.size.height.toDouble() + adPadding1 * 2),
-              height: 0),
+              height: Banner1.size.height.toDouble() + adPadding1 * 2),
+          //height: 0),
         )
         //con1
       ],

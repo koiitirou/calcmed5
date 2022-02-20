@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -77,8 +84,26 @@ class _Fen_calState extends State<Fen_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -97,17 +122,37 @@ class _Fen_calState extends State<Fen_cal> {
               child: ListView(
                 padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: <Widget>[
-                  InpPadding('入力'),
-                  FormTmp1(controller1, '血清ナトリウム値', '数値を入力して下さい', '000.0',
-                      'mEq/L', _calculate1),
-                  FormTmp1(controller2, '血清クレアチニン値', '数値を入力して下さい', '0.00',
-                      'mg/dL', _calculate1),
-                  FormTmp1(controller3, '尿中ナトリウム値', '数値を入力して下さい', '000.0',
-                      'mEq/L', _calculate1),
-                  FormTmp1(controller4, '尿中クレアチニン値', '数値を入力して下さい', '000.0',
-                      'mg/dL', _calculate1),
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  FormTmp1(
+                      controller1,
+                      '血清ナトリウム値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000.0',
+                      'mEq/L',
+                      _calculate1),
+                  FormTmp1(
+                      controller2,
+                      '血清クレアチニン値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '0.00',
+                      'mg/dL',
+                      _calculate1),
+                  FormTmp1(
+                      controller3,
+                      '尿中ナトリウム値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000.0',
+                      'mEq/L',
+                      _calculate1),
+                  FormTmp1(
+                      controller4,
+                      '尿中クレアチニン値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000.0',
+                      'mg/dL',
+                      _calculate1),
                   //CalcButton(_formKey, _calculate1, '計算'),
-                  InpPadding('結果'),
+                  InpPadding(AppLocalizations.of(context)!.results),
                   ResContainer2('ナトリウム排泄率(FENa) %', _outputString, '  %'),
                   ResContainer1('急性腎障害における鑑別', _infoText),
                   calcPadding(
@@ -119,6 +164,9 @@ class _Fen_calState extends State<Fen_cal> {
                 ],
               ),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -117,8 +124,26 @@ class _Chp_calState extends State<Chp_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       //key: _formKey,
       body: NestedScrollView(
@@ -135,46 +160,50 @@ class _Chp_calState extends State<Chp_cal> {
         body: Column(
           children: [
             Expanded(
-                key: _formKey,
-                child: ListView(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                  children: [
-                    InpPadding('入力'),
-                    MySelectRow3func1(_tc1, '総ビリルビン値', '>3mg/dL', '2-3mg/dL',
-                        '<2mg/dL', '+3', '+2', '+1', _calculate1),
-                    MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL',
-                        '>3.5g/dL', '+3', '+2', '+1', _calculate1),
-                    MySelectRow3func1(_tc3, 'PT-INR', '>2.2', '1.7-2.2', '<1.7',
-                        '+3', '+2', '+1', _calculate1),
-                    MySelectRow3func1(_tc4, '腹水', '中等量以上(≧3L)', '少量(1-3L)',
-                        'なし', '+3', '+2', '+1', _calculate1),
-                    MySelectRow3func1(_tc5, '肝性脳症', '時に昏睡(Ⅲ以上)', '軽度(Ⅰ, Ⅱ)',
-                        'なし', '+3', '+2', '+1', _calculate1),
-                    //FormTmp(fIt1, '心拍数', '数値を入力して下さい', '00', '回/min'),
-                    //FormTmp(fIt2, 'QT間隔', '数値を入力して下さい', '000', 'msec'),
-                    //FormTmp(fIt3, 'PT-INR', '数値を入力して下さい', '0.00', ''),
-                    //FormTmp(fIt4, '血清ナトリウム値', '数値を入力して下さい', '000.0', 'mEq/L'),
-                    //CalcButton(_formKey, _calculate1, '計算'),
-                    //if (_notZero) ...[
-                    InpPadding('結果'),
-                    ResContainer1('Child-Pughスコア', '$_fSg1 点'),
-                    ResContainer1('Child-Pugh分類', _fSg2),
-                    //ResContainer('Framingham式 補正QT間隔', '$fOt3Text msec'),
-                    //ResContainer('Hodges式 補正QT間隔', '$fOt4Text msec'),
-                    //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
-                    //ResContainer('GFR区分', _infoText),
-                    //],
-                    //calcPadding('RR間隔 = 60 / 心拍数'),
-                    //calcPadding('*Bazzet式 QTc = QT間隔 / √(RR間隔)'),
-                    //calcPadding('*Fridericia式 QTc = QT間隔/ (RR間隔)^1/3'),
-                    //calcPadding('*Framingham式 QTc = QT間隔 + 154 x (1 - RR間隔)'),
-                    //calcPadding('*Hodges式 QTc = QT間隔 + 1.75 x ( (60 / RR間隔) − 60)'),
-                    InpPadding('参考文献'),
-                    refPadding(
-                        '[1] Child CG, Turcotte JG. Surgery and portal hypertension. Major Probl Clin Surg. 1964;1:1-85.',
-                        'https://pubmed.ncbi.nlm.nih.gov/4950264/'),
-                  ],
-                )),
+              key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                children: [
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  MySelectRow3func1(_tc1, '総ビリルビン値', '>3mg/dL', '2-3mg/dL',
+                      '<2mg/dL', '+3', '+2', '+1', _calculate1),
+                  MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL',
+                      '>3.5g/dL', '+3', '+2', '+1', _calculate1),
+                  MySelectRow3func1(_tc3, 'PT-INR', '>2.2', '1.7-2.2', '<1.7',
+                      '+3', '+2', '+1', _calculate1),
+                  MySelectRow3func1(_tc4, '腹水', '中等量以上(≧3L)', '少量(1-3L)', 'なし',
+                      '+3', '+2', '+1', _calculate1),
+                  MySelectRow3func1(_tc5, '肝性脳症', '時に昏睡(Ⅲ以上)', '軽度(Ⅰ, Ⅱ)', 'なし',
+                      '+3', '+2', '+1', _calculate1),
+                  //FormTmp(fIt1, '心拍数', AppLocalizations.of(context)!.valMessage, '00', '回/min'),
+                  //FormTmp(fIt2, 'QT間隔', AppLocalizations.of(context)!.valMessage, '000', 'msec'),
+                  //FormTmp(fIt3, 'PT-INR', AppLocalizations.of(context)!.valMessage, '0.00', ''),
+                  //FormTmp(fIt4, '血清ナトリウム値', AppLocalizations.of(context)!.valMessage, '000.0', 'mEq/L'),
+                  //CalcButton(_formKey, _calculate1, '計算'),
+                  //if (_notZero) ...[
+                  InpPadding(AppLocalizations.of(context)!.results),
+                  ResContainer1('Child-Pughスコア', '$_fSg1 点'),
+                  ResContainer1('Child-Pugh分類', _fSg2),
+                  //ResContainer('Framingham式 補正QT間隔', '$fOt3Text msec'),
+                  //ResContainer('Hodges式 補正QT間隔', '$fOt4Text msec'),
+                  //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
+                  //ResContainer('GFR区分', _infoText),
+                  //],
+                  //calcPadding('RR間隔 = 60 / 心拍数'),
+                  //calcPadding('*Bazzet式 QTc = QT間隔 / √(RR間隔)'),
+                  //calcPadding('*Fridericia式 QTc = QT間隔/ (RR間隔)^1/3'),
+                  //calcPadding('*Framingham式 QTc = QT間隔 + 154 x (1 - RR間隔)'),
+                  //calcPadding('*Hodges式 QTc = QT間隔 + 1.75 x ( (60 / RR間隔) − 60)'),
+                  InpPadding('参考文献'),
+                  refPadding(
+                      '[1] Child CG, Turcotte JG. Surgery and portal hypertension. Major Probl Clin Surg. 1964;1:1-85.',
+                      'https://pubmed.ncbi.nlm.nih.gov/4950264/'),
+                ],
+              ),
+            ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

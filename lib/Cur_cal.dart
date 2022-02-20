@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -174,8 +181,26 @@ class _Cur_calState extends State<Cur_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -196,7 +221,7 @@ class _Cur_calState extends State<Cur_cal> {
                 child: ListView(
                   padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                   children: [
-                    InpPadding('入力'),
+                    InpPadding(AppLocalizations.of(context)!.inputs),
                     MySelect1func1(_sc1, '錯乱 (Confusion)', 'はい', 'いいえ', '+1',
                         '0', _calculate1),
                     MySelect1func1(_sc2, 'BUN 21mg/dL', 'はい', 'いいえ', '+1', '0',
@@ -208,11 +233,11 @@ class _Cur_calState extends State<Cur_cal> {
                     MySelect1func1(
                         _sc5, '65歳以上', 'はい', 'いいえ', '+1', '0', _calculate1),
                     //MySelect1func1wide1( _sc1, '', '小児用', '成人用', '60滴=1ml', '20滴=1ml', _calculate1),
-                    //FormTmp1(_fIt1, '感度', '数値を入力して下さい', '00.0', '%', _calculate1),
+                    //FormTmp1(_fIt1, '感度', AppLocalizations.of(context)!.valMessage, '00.0', '%', _calculate1),
                     //MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL', '>3.5g/dL', '+3', '+2', '+1', _calculate1),
                     //CalcButton(_formKey, _calculate1, '計算'),
                     //if (_notZero) ...[
-                    InpPadding('結果'),
+                    InpPadding(AppLocalizations.of(context)!.results),
 
                     ResContainer2('CURB65 スコア', _fSg1, '  点'),
                     ResContainer2('判定', _fSg2, ''),
@@ -230,6 +255,9 @@ class _Cur_calState extends State<Cur_cal> {
                 ),
               ),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

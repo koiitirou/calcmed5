@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'dart:math';
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -95,8 +102,26 @@ class _Qtc_calState extends State<Qtc_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -112,47 +137,61 @@ class _Qtc_calState extends State<Qtc_cal> {
         body: Column(
           children: [
             Expanded(
-                //key: _formKey,
-                child: ListView(
-              padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-              children: [
-                InpPadding('入力'),
-                //MySelect1(_sc1, '2週間以内の透析', 'あり', 'なし', '', ''),
-                FormTmp1(
-                    fIt1, '心拍数', '数値を入力して下さい', '00', '回/min', _calculateCCR),
-                FormTmp1(
-                    fIt2, 'QT間隔', '数値を入力して下さい', '000', 'msec', _calculateCCR),
-                //FormTmp(fIt3, 'PT-INR', '数値を入力して下さい', '0.00', ''),
-                //FormTmp(fIt4, '血清ナトリウム値', '数値を入力して下さい', '000.0', 'mEq/L'),
-                //CalcButton(_formKey, _calculateCCR, '計算'),
-                //if (_notZero) ...[
-                InpPadding('結果'),
-                ResContainer2('Bazzett式 補正QT間隔', fOt1Text, '  msec'),
-                ResContainer2('Friderical式 補正QT間隔', fOt2Text, '  msec'),
-                ResContainer2('Framingham式 補正QT間隔', fOt3Text, '  msec'),
-                //ResContainer('Hodges式 補正QT間隔', '$fOt4Text msec'),
-                //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
-                //ResContainer('GFR区分', _infoText),
-                //],
-                calcPadding('RR間隔 = 60 / 心拍数'),
-                calcPadding('*Bazzet式 QTc = QT間隔 / √(RR間隔)'),
-                calcPadding('*Fridericia式 QTc = QT間隔/ (RR間隔)^1/3'),
-                calcPadding('*Framingham式 QTc = QT間隔 + 154 x (1 - RR間隔)'),
-                //calcPadding('*Hodges式 QTc = QT間隔 + 1.75 x ( (60 / RR間隔) − 60)'),
-                InpPadding('参考文献'),
-                refPadding(
-                    '[1] Bazett, H.C. (1920) : An analysis of the timerelations of electrocardiograms. Heart, 7, 353-370.',
-                    ''),
-                refPadding(
-                    '[2] Fridericia, L.S. (1920) : Die systolendauer im elektrokardiogramm bei normalen menschen und bei herzkranken. Acta Med. Scand., 53, 469-486',
-                    'https://pubmed.ncbi.nlm.nih.gov/14516292/'),
-                //'https://pub.dev/packages/url_launcher'),
-                refPadding(
-                    '[3] Sagie, A., Larson, M. G., Goldberg, R. J., Bengtson, J. R. and D. Levy (1992) : An improved method for adjusting the QT interval for heart rate (the Framingham Heart Study). Am. J. Cardiol., 70, 797-801',
-                    'https://pubmed.ncbi.nlm.nih.gov/1519533/'),
-                //refPadding('[4] ', ''),
-              ],
-            )),
+              //key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                children: [
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  //MySelect1(_sc1, '2週間以内の透析', 'あり', 'なし', '', ''),
+                  FormTmp1(
+                      fIt1,
+                      '心拍数',
+                      AppLocalizations.of(context)!.valMessage,
+                      '00',
+                      '回/min',
+                      _calculateCCR),
+                  FormTmp1(
+                      fIt2,
+                      'QT間隔',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000',
+                      'msec',
+                      _calculateCCR),
+                  //FormTmp(fIt3, 'PT-INR', AppLocalizations.of(context)!.valMessage, '0.00', ''),
+                  //FormTmp(fIt4, '血清ナトリウム値', AppLocalizations.of(context)!.valMessage, '000.0', 'mEq/L'),
+                  //CalcButton(_formKey, _calculateCCR, '計算'),
+                  //if (_notZero) ...[
+                  InpPadding(AppLocalizations.of(context)!.results),
+                  ResContainer2('Bazzett式 補正QT間隔', fOt1Text, '  msec'),
+                  ResContainer2('Friderical式 補正QT間隔', fOt2Text, '  msec'),
+                  ResContainer2('Framingham式 補正QT間隔', fOt3Text, '  msec'),
+                  //ResContainer('Hodges式 補正QT間隔', '$fOt4Text msec'),
+                  //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
+                  //ResContainer('GFR区分', _infoText),
+                  //],
+                  calcPadding('RR間隔 = 60 / 心拍数'),
+                  calcPadding('*Bazzet式 QTc = QT間隔 / √(RR間隔)'),
+                  calcPadding('*Fridericia式 QTc = QT間隔/ (RR間隔)^1/3'),
+                  calcPadding('*Framingham式 QTc = QT間隔 + 154 x (1 - RR間隔)'),
+                  //calcPadding('*Hodges式 QTc = QT間隔 + 1.75 x ( (60 / RR間隔) − 60)'),
+                  InpPadding('参考文献'),
+                  refPadding(
+                      '[1] Bazett, H.C. (1920) : An analysis of the timerelations of electrocardiograms. Heart, 7, 353-370.',
+                      ''),
+                  refPadding(
+                      '[2] Fridericia, L.S. (1920) : Die systolendauer im elektrokardiogramm bei normalen menschen und bei herzkranken. Acta Med. Scand., 53, 469-486',
+                      'https://pubmed.ncbi.nlm.nih.gov/14516292/'),
+                  //'https://pub.dev/packages/url_launcher'),
+                  refPadding(
+                      '[3] Sagie, A., Larson, M. G., Goldberg, R. J., Bengtson, J. R. and D. Levy (1992) : An improved method for adjusting the QT interval for heart rate (the Framingham Heart Study). Am. J. Cardiol., 70, 797-801',
+                      'https://pubmed.ncbi.nlm.nih.gov/1519533/'),
+                  //refPadding('[4] ', ''),
+                ],
+              ),
+            ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14es
           ],
         ),
       ),

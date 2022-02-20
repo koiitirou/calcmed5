@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -95,8 +102,26 @@ class _Has_calState extends State<Has_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -114,39 +139,43 @@ class _Has_calState extends State<Has_cal> {
             Expanded(
               key: _formKey,
               child: ListView(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                  children: <Widget>[
-                    InpPadding('入力'),
-                    MySelect1func1(_sc0s[0], '高血圧 (sBP >160mmHg)', 'あり', 'なし',
-                        '+1', '0', _calculateIMC),
-                    MySelect1func1(_sc0s[1], '肝機能異常', 'あり', 'なし', '+1', '0',
-                        _calculateIMC),
-                    MySelect1func1(_sc0s[2], '腎機能異常', 'あり', 'なし', '+1', '0',
-                        _calculateIMC),
-                    MySelect1func1(_sc0s[3], '脳卒中の既往', 'あり', 'なし', '+1', '0',
-                        _calculateIMC),
-                    MySelect1func1(_sc0s[4], '出血歴/出血素因', 'あり', 'なし', '+1', '0',
-                        _calculateIMC),
-                    MySelect1func1(_sc0s[5], '不安定/高値INR・TTR', 'はい', 'いいえ', '+1',
-                        '0', _calculateIMC),
-                    MySelect1func1(_sc0s[6], '年齢>65歳', 'はい', 'いいえ', '+1', '0',
-                        _calculateIMC),
-                    MySelect1func1(_sc0s[7], '抗血小板薬/NSAIDS使用', 'あり', 'なし', '+1',
-                        '0', _calculateIMC),
-                    MySelect1func1(_sc0s[8], 'アルコール依存', 'あり', 'なし', '+1', '0',
-                        _calculateIMC),
-                    //CalcButton(_formKey, _calculateIMC, '計算'),
-                    //if (_notZero) ...[
-                    InpPadding('結果'),
-                    ResContainer1('HAS-BLEDスコア', '$_ch2String 点'),
-                    ResContainer1('補正年間大出血発症率', '$_infoText'),
-                    InpPadding('参考文献'),
-                    refPadding(
-                        '[1]  Pisters R et al. A novel user-friendly score (HAS-BLED) to assess 1-year risk of major bleeding in patients with atrial fibrillation: the Euro Heart Survey. Chest 2010; 138: 1093– 1100.',
-                        'https://pubmed.ncbi.nlm.nih.gov/20299623/'),
-                    //]
-                  ]),
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                children: <Widget>[
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  MySelect1func1(_sc0s[0], '高血圧 (sBP >160mmHg)', 'あり', 'なし',
+                      '+1', '0', _calculateIMC),
+                  MySelect1func1(
+                      _sc0s[1], '肝機能異常', 'あり', 'なし', '+1', '0', _calculateIMC),
+                  MySelect1func1(
+                      _sc0s[2], '腎機能異常', 'あり', 'なし', '+1', '0', _calculateIMC),
+                  MySelect1func1(
+                      _sc0s[3], '脳卒中の既往', 'あり', 'なし', '+1', '0', _calculateIMC),
+                  MySelect1func1(_sc0s[4], '出血歴/出血素因', 'あり', 'なし', '+1', '0',
+                      _calculateIMC),
+                  MySelect1func1(_sc0s[5], '不安定/高値INR・TTR', 'はい', 'いいえ', '+1',
+                      '0', _calculateIMC),
+                  MySelect1func1(_sc0s[6], '年齢>65歳', 'はい', 'いいえ', '+1', '0',
+                      _calculateIMC),
+                  MySelect1func1(_sc0s[7], '抗血小板薬/NSAIDS使用', 'あり', 'なし', '+1',
+                      '0', _calculateIMC),
+                  MySelect1func1(_sc0s[8], 'アルコール依存', 'あり', 'なし', '+1', '0',
+                      _calculateIMC),
+                  //CalcButton(_formKey, _calculateIMC, '計算'),
+                  //if (_notZero) ...[
+                  InpPadding(AppLocalizations.of(context)!.results),
+                  ResContainer1('HAS-BLEDスコア', '$_ch2String 点'),
+                  ResContainer1('補正年間大出血発症率', '$_infoText'),
+                  InpPadding('参考文献'),
+                  refPadding(
+                      '[1]  Pisters R et al. A novel user-friendly score (HAS-BLED) to assess 1-year risk of major bleeding in patients with atrial fibrillation: the Euro Heart Survey. Chest 2010; 138: 1093– 1100.',
+                      'https://pubmed.ncbi.nlm.nih.gov/20299623/'),
+                  //]
+                ],
+              ),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

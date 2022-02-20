@@ -1,8 +1,15 @@
 import 'myfunction2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -74,8 +81,26 @@ class _Ldl_calState extends State<Ldl_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -94,21 +119,39 @@ class _Ldl_calState extends State<Ldl_cal> {
               child: ListView(
                 padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: <Widget>[
-                  InpPadding('入力'),
-                  FormTmp1(controller1, '総コレステロール (TC)', '数値を入力して下さい', '000.0',
-                      'mg/dL', _calculate1),
-                  FormTmp1(controller2, 'HDLコレステロール (HDL)', '数値を入力して下さい',
-                      '00.0', 'mg/dL', _calculate1),
-                  FormTmp1(controller3, '中性脂肪 (TG)', '数値を入力して下さい', '000.0',
-                      'mg/dL', _calculate1),
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  FormTmp1(
+                      controller1,
+                      '総コレステロール (TC)',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000.0',
+                      'mg/dL',
+                      _calculate1),
+                  FormTmp1(
+                      controller2,
+                      'HDLコレステロール (HDL)',
+                      AppLocalizations.of(context)!.valMessage,
+                      '00.0',
+                      'mg/dL',
+                      _calculate1),
+                  FormTmp1(
+                      controller3,
+                      '中性脂肪 (TG)',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000.0',
+                      'mg/dL',
+                      _calculate1),
                   calcPadding('*LDL計算式 (Friedewald式):  LDL = TC－HDL－TG/5'),
-                  InpPadding('結果'),
+                  InpPadding(AppLocalizations.of(context)!.results),
                   ResContainer2(
                       'LDLコレステロール(Friedewald推定式)', _outputString, '  mg/dL'),
                   ResContainer1('判定', '$_infoText'),
                 ],
               ),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'dart:math';
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -117,8 +124,26 @@ class _Mel_calState extends State<Mel_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -134,43 +159,66 @@ class _Mel_calState extends State<Mel_cal> {
         body: Column(
           children: [
             Expanded(
-                key: _formKey,
-                child: ListView(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                  children: [
-                    InpPadding('入力'),
-                    MySelect1func1(
-                        _sc1, '2週間以内の透析', 'あり', 'なし', '', '', _calculateCCR),
-                    FormTmp1(formInput1, '血清クレアチニン値', '数値を入力して下さい', '0.00',
-                        'mg/dL', _calculateCCR),
-                    FormTmp1(formInput2, '血清ビリルビン値', '数値を入力して下さい', '0.00',
-                        'mg/dL', _calculateCCR),
-                    FormTmp1(formInput3, 'PT-INR', '数値を入力して下さい', '0.00', '',
-                        _calculateCCR),
-                    FormTmp1(formInput4, '血清ナトリウム値', '数値を入力して下さい', '000.0',
-                        'mEq/L', _calculateCCR),
-                    //CalcButton(_formKey, _calculateCCR, '計算'),
-                    //if (_notZero) ...[
-                    InpPadding('結果'),
-                    ResContainer2('MELDスコア', _melScoreText, '  点'),
-                    ResContainer1(
-                        '成人肝移植予定患者におけるMELDと3ヶ月後の生存率の関係', '$_mortality'),
-                    ResContainer2('MELD Naスコア', _melScoreNaText, '  点'),
-                    //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
-                    //ResContainer('GFR区分', _infoText),
-                    //],
-                    calcPadding(
-                        '*MELD    =  0.957 × loge(血清クレアチニン値) + 0.378 × loge(血清ビリルビン値) + 1.120 × loge(PT-INR) + 0.643'),
-                    calcPadding(
-                        '*MELD > 11のとき、\n MELD Na = MELD + 1.32 × (137 – Na) –  [ 0.033 × MELD × (137 – Na) ]'),
-                    calcPadding(
-                        '*2週間以内の透析歴がある場合、血清クレアチニン値は4.0mg/dlとする。\n*血清クレアチニン値/血清ビリルビン値/PT-INRが1.0未満のとき、それぞれ1.0とする\n*血清ナトリウム値が125mEq/L未満のとき125mEq/Lとし、137mEq/Lより大きいとき137mEq/Lとする'),
-                    InpPadding('参考文献'),
-                    refPadding(
-                        '[1]  Wiesner R et al. Model for end-stage liver disease (MELD) and allocation of donor livers Gastroenterology. 2003 Jan;124(1):91-6.',
-                        'https://pubmed.ncbi.nlm.nih.gov/12512033/'),
-                  ],
-                )),
+              key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                children: [
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  MySelect1func1(
+                      _sc1, '2週間以内の透析', 'あり', 'なし', '', '', _calculateCCR),
+                  FormTmp1(
+                      formInput1,
+                      '血清クレアチニン値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '0.00',
+                      'mg/dL',
+                      _calculateCCR),
+                  FormTmp1(
+                      formInput2,
+                      '血清ビリルビン値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '0.00',
+                      'mg/dL',
+                      _calculateCCR),
+                  FormTmp1(
+                      formInput3,
+                      'PT-INR',
+                      AppLocalizations.of(context)!.valMessage,
+                      '0.00',
+                      '',
+                      _calculateCCR),
+                  FormTmp1(
+                      formInput4,
+                      '血清ナトリウム値',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000.0',
+                      'mEq/L',
+                      _calculateCCR),
+                  //CalcButton(_formKey, _calculateCCR, '計算'),
+                  //if (_notZero) ...[
+                  InpPadding(AppLocalizations.of(context)!.results),
+                  ResContainer2('MELDスコア', _melScoreText, '  点'),
+                  ResContainer1('成人肝移植予定患者におけるMELDと3ヶ月後の生存率の関係', '$_mortality'),
+                  ResContainer2('MELD Naスコア', _melScoreNaText, '  点'),
+                  //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
+                  //ResContainer('GFR区分', _infoText),
+                  //],
+                  calcPadding(
+                      '*MELD    =  0.957 × loge(血清クレアチニン値) + 0.378 × loge(血清ビリルビン値) + 1.120 × loge(PT-INR) + 0.643'),
+                  calcPadding(
+                      '*MELD > 11のとき、\n MELD Na = MELD + 1.32 × (137 – Na) –  [ 0.033 × MELD × (137 – Na) ]'),
+                  calcPadding(
+                      '*2週間以内の透析歴がある場合、血清クレアチニン値は4.0mg/dlとする。\n*血清クレアチニン値/血清ビリルビン値/PT-INRが1.0未満のとき、それぞれ1.0とする\n*血清ナトリウム値が125mEq/L未満のとき125mEq/Lとし、137mEq/Lより大きいとき137mEq/Lとする'),
+                  InpPadding('参考文献'),
+                  refPadding(
+                      '[1]  Wiesner R et al. Model for end-stage liver disease (MELD) and allocation of donor livers Gastroenterology. 2003 Jan;124(1):91-6.',
+                      'https://pubmed.ncbi.nlm.nih.gov/12512033/'),
+                ],
+              ),
+            ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 import 'dart:math' as math;
@@ -204,7 +205,7 @@ class _Gam_calState extends State<Gam_cal> {
               child: ListView(
                 padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: [
-                  InpPadding('入力'),
+                  InpPadding(AppLocalizations.of(context)!.inputs),
                   //MySelectRow3func1(_tc1, '総ビリルビン値', '>3mg/dL', '2-3mg/dL',
                   //  '<2mg/dL', '+3', '+2', '+1', _calculate1),
                   //MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL',
@@ -215,45 +216,89 @@ class _Gam_calState extends State<Gam_cal> {
                   //  '+3', '+2', '+1', _calculate1),
                   //MySelectRow3func1(_tc5, '肝性脳症', '時に昏睡(Ⅲ以上)', '軽度(Ⅰ, Ⅱ)', 'なし',
                   //  '+3', '+2', '+1', _calculate1),
-                  FormTmp1(_fIt1, '体重', '数値を入力して下さい', '50', 'kg', _calculate1),
-                  FormTmp1(_fIt2, '1本あたりの薬液の量', '数値を入力して下さい', '000', 'ml',
+                  FormTmp1(
+                      _fIt1,
+                      AppLocalizations.of(context)!.weight,
+                      AppLocalizations.of(context)!.valMessage,
+                      '50',
+                      'kg',
                       _calculate1),
-                  FormTmp1(_fIt3, '1本あたりの薬剤の量', '数値を入力して下さい', '000', 'mg',
+                  FormTmp1(
+                      _fIt2,
+                      AppLocalizations.of(context)!.volumeFluid,
+                      AppLocalizations.of(context)!.valMessage,
+                      '000',
+                      'ml',
+                      _calculate1),
+                  FormTmp1(
+                      _fIt3,
+                      AppLocalizations.of(context)!.amountDrug,
+                      AppLocalizations.of(context)!.valMessage,
+                      '000',
+                      'mg',
                       _calculate1),
                   //CalcButton(_formKey, _calculate1, '計算'),
                   //if (_notZero) ...[
-                  //InpPadding('結果'),
+                  //InpPadding(AppLocalizations.of(context)!.results),
                   Row(
                     children: [
                       Flexible(
                         child: Column(
                           children: [
-                            FormTmp1(_fIt5, '投与γ', '数値を入力して下さい', '0.00',
-                                'µg/kg/min', _calculate1),
+                            FormTmp1(
+                                _fIt5,
+                                AppLocalizations.of(context)!.desiredDose1,
+                                AppLocalizations.of(context)!.valMessage,
+                                '0.00',
+                                'µg/kg/min',
+                                _calculate1),
                             Transform.rotate(
                                 angle: math.pi / 2,
                                 child: Icon(
                                   Icons.navigate_next,
                                 )),
-                            ResContainer2('投与速度', _fSg4, 'ml/hr'),
-                            ResContainer2('必要薬液量/日', _fSg5, 'ml/日'),
-                            ResContainer2('必要本数/日', _fSg6, '本/日'),
+                            ResContainer2(
+                                AppLocalizations.of(context)!.desiredDose2,
+                                _fSg4,
+                                'ml/hr'),
+                            ResContainer2(
+                                AppLocalizations.of(context)!.requiredAmount,
+                                _fSg5,
+                                AppLocalizations.of(context)!.mlDay),
+                            ResContainer2(
+                                AppLocalizations.of(context)!.requiredBag,
+                                _fSg6,
+                                AppLocalizations.of(context)!.bagDay),
                           ],
                         ),
                       ),
                       Flexible(
                         child: Column(
                           children: [
-                            FormTmp1(_fIt4, '投与速度', '数値を入力して下さい', '00.0',
-                                'ml/hr', _calculate1),
+                            FormTmp1(
+                                _fIt4,
+                                AppLocalizations.of(context)!.desiredDose2,
+                                AppLocalizations.of(context)!.valMessage,
+                                '00.0',
+                                'ml/hr',
+                                _calculate1),
                             Transform.rotate(
                                 angle: math.pi / 2,
                                 child: Icon(
                                   Icons.navigate_next,
                                 )),
-                            ResContainer2('投与γ', _fSg1, 'µg/kg/min'),
-                            ResContainer2('必要薬液量/日', _fSg2, 'ml/日'),
-                            ResContainer2('必要本数/日', _fSg3, '本/日'),
+                            ResContainer2(
+                                AppLocalizations.of(context)!.desiredDose1,
+                                _fSg1,
+                                'µg/kg/min'),
+                            ResContainer2(
+                                AppLocalizations.of(context)!.requiredAmount,
+                                _fSg2,
+                                AppLocalizations.of(context)!.mlDay),
+                            ResContainer2(
+                                AppLocalizations.of(context)!.requiredBag,
+                                _fSg3,
+                                AppLocalizations.of(context)!.bagDay),
                           ],
                         ),
                       ),

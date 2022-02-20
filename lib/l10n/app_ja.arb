@@ -13,5 +13,16 @@
     "gfrcat":"CKDにおけるGFR区分",
     "inputs":"入力",
     "results":"結果",
-    "years":"歳"
+    "years":"歳",
+    "height":"年齢",
+    "category":"区分",
+    "volumeFluid":"1本あたりの薬液の量",
+    "amountDrug":"1本あたりの薬剤の量",
+    "desiredDose1":"投与γ",
+    "desiredDose2":"投与速度",
+    "requiredAmount":"必要薬液量/日",
+    "requiredBag":"必要本数/日",
+    "mlDay":"ml/日",
+    "bagDay":"bag/日",
+    "valMessage":"数値を入力してください"
 }

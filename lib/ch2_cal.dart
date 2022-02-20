@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -94,8 +101,26 @@ class _Ch2_calState extends State<Ch2_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -116,7 +141,7 @@ class _Ch2_calState extends State<Ch2_cal> {
                 child: ListView(
                     padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
                     children: <Widget>[
-                      InpPadding('入力'),
+                      InpPadding(AppLocalizations.of(context)!.inputs),
                       MySelect1func1(
                           _sc1,
                           '心不全',
@@ -153,7 +178,7 @@ class _Ch2_calState extends State<Ch2_cal> {
                           _calculateIMC),
                       //CalcButton(_formKey, _calculateIMC, '計算'),
                       //if (_notZero) ...[
-                      InpPadding('結果'),
+                      InpPadding(AppLocalizations.of(context)!.results),
                       ResContainer1('CHADS2スコア', '$_ch2String 点'),
                       ResContainer1('抗凝固未施行例の年間脳梗塞発症率',
                           '$_strokeRate1 %   [1]\n$_strokeRate2 %   [2]'),
@@ -168,6 +193,9 @@ class _Ch2_calState extends State<Ch2_cal> {
                     ]),
               ),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

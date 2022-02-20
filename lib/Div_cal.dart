@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 
 import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
 
 List<bool> _sc0 = [
   false,
@@ -154,8 +161,26 @@ class _Div_calState extends State<Div_cal> {
     });
   }
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -172,48 +197,62 @@ class _Div_calState extends State<Div_cal> {
         body: Column(
           children: [
             Expanded(
-                child: ListView(
-              padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-              children: [
-                InpPadding('入力'),
-                MySelect1func1wide1(
-                    _sc1, '', '小児用', '成人用', '60滴=1ml', '20滴=1ml', _calculate1),
-                //MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL',
-                //  '>3.5g/dL', '+3', '+2', '+1', _calculate1),
-                //MySelectRow3func1(_tc3, 'PT-INR', '>2.2', '1.7-2.2', '<1.7', '+3',
-                //  '+2', '+1', _calculate1),
-                //MySelectRow3func1(_tc4, '腹水', '中等量以上(≧3L)', '少量(1-3L)', 'なし',
-                //  '+3', '+2', '+1', _calculate1),
-                //MySelectRow3func1(_tc5, '肝性脳症', '時に昏睡(Ⅲ以上)', '軽度(Ⅰ, Ⅱ)', 'なし',
-                //  '+3', '+2', '+1', _calculate1),
-                FormTmp1(_fIt1, '1本(袋)あたりの点滴量', '数値を入力して下さい', '000', 'ml',
-                    _calculate1),
-                FormTmp1(_fIt2, '1本(袋)あたりの点滴時間', '数値を入力して下さい', '00', 'hr(時間)',
-                    _calculate1),
-                //CalcButton(_formKey, _calculate1, '計算'),
-                //if (_notZero) ...[
-                //InpPadding('結果'),
+              child: ListView(
+                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                children: [
+                  InpPadding(AppLocalizations.of(context)!.inputs),
+                  MySelect1func1wide1(_sc1, '', '小児用', '成人用', '60滴=1ml',
+                      '20滴=1ml', _calculate1),
+                  //MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL',
+                  //  '>3.5g/dL', '+3', '+2', '+1', _calculate1),
+                  //MySelectRow3func1(_tc3, 'PT-INR', '>2.2', '1.7-2.2', '<1.7', '+3',
+                  //  '+2', '+1', _calculate1),
+                  //MySelectRow3func1(_tc4, '腹水', '中等量以上(≧3L)', '少量(1-3L)', 'なし',
+                  //  '+3', '+2', '+1', _calculate1),
+                  //MySelectRow3func1(_tc5, '肝性脳症', '時に昏睡(Ⅲ以上)', '軽度(Ⅰ, Ⅱ)', 'なし',
+                  //  '+3', '+2', '+1', _calculate1),
+                  FormTmp1(
+                      _fIt1,
+                      '1本(袋)あたりの点滴量',
+                      AppLocalizations.of(context)!.valMessage,
+                      '000',
+                      'ml',
+                      _calculate1),
+                  FormTmp1(
+                      _fIt2,
+                      '1本(袋)あたりの点滴時間',
+                      AppLocalizations.of(context)!.valMessage,
+                      '00',
+                      'hr(時間)',
+                      _calculate1),
+                  //CalcButton(_formKey, _calculate1, '計算'),
+                  //if (_notZero) ...[
+                  //InpPadding(AppLocalizations.of(context)!.results),
 
-                ResContainer2('1分間の滴下数', _fSg1, '  滴'),
-                ResContainer2('10秒間の滴下数', _fSg2, '  滴'),
-                ResContainer2('点滴速度', _fSg3, '  ml/hr'),
-                ResContainer2('必要な点滴量/1日', _fSg4, '  ml'),
-                ResContainer2('必要な点滴の本(袋)数/1日', _fSg5, '  本(袋)'),
-                //ResContainer('Hodges式 補正QT間隔', '$_fSg4 msec'),
-                //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
-                //ResContainer('GFR区分', _in_foText),
-                //],
-                //calcPadding('RR間隔 = 60 / 心拍数'),
-                //calcPadding('*Bazzet式 QTc = QT間隔 / √(RR間隔)'),
-                //calcPadding('*Fridericia式 QTc = QT間隔/ (RR間隔)^1/3'),
-                //calcPadding('*Framingham式 QTc = QT間隔 + 154 x (1 - RR間隔)'),
-                //calcPadding('*Hodges式 QTc = QT間隔 + 1.75 x ( (60 / RR間隔) − 60)'),
-                //InpPadding('参考文献'),
-                //refPadding(
-                //    '[1] Child CG, Turcotte JG. Surgery and portal hypertension. Major Probl Clin Surg. 1964;1:1-85.',
-                //   'https://pubmed.ncbi.nlm.nih.gov/4950264/'),
-              ],
-            )),
+                  ResContainer2('1分間の滴下数', _fSg1, '  滴'),
+                  ResContainer2('10秒間の滴下数', _fSg2, '  滴'),
+                  ResContainer2('点滴速度', _fSg3, '  ml/hr'),
+                  ResContainer2('必要な点滴量/1日', _fSg4, '  ml'),
+                  ResContainer2('必要な点滴の本(袋)数/1日', _fSg5, '  本(袋)'),
+                  //ResContainer('Hodges式 補正QT間隔', '$_fSg4 msec'),
+                  //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
+                  //ResContainer('GFR区分', _in_foText),
+                  //],
+                  //calcPadding('RR間隔 = 60 / 心拍数'),
+                  //calcPadding('*Bazzet式 QTc = QT間隔 / √(RR間隔)'),
+                  //calcPadding('*Fridericia式 QTc = QT間隔/ (RR間隔)^1/3'),
+                  //calcPadding('*Framingham式 QTc = QT間隔 + 154 x (1 - RR間隔)'),
+                  //calcPadding('*Hodges式 QTc = QT間隔 + 1.75 x ( (60 / RR間隔) − 60)'),
+                  //InpPadding('参考文献'),
+                  //refPadding(
+                  //    '[1] Child CG, Turcotte JG. Surgery and portal hypertension. Major Probl Clin Surg. 1964;1:1-85.',
+                  //   'https://pubmed.ncbi.nlm.nih.gov/4950264/'),
+                ],
+              ),
+            ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

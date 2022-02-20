@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'myfunctions.dart';
 import 'myfunction2.dart';
 
@@ -195,17 +196,27 @@ class _Hom_calState extends State<Hom_cal> {
                   key: _formKey,
                   child: ListView(
                     children: [
-                      InpPadding('入力'),
+                      InpPadding(AppLocalizations.of(context)!.inputs),
                       //MySelect1func1wide1( _sc1, '', '小児用', '成人用', '60滴=1ml', '20滴=1ml', _calculate1),
-                      FormTmp1(_fIt1, '空腹時インスリン値 (IRI)', '数値を入力して下さい', '0.0',
-                          'μU/mL', _calculate1),
-                      FormTmp1(_fIt2, '空腹時血糖値 (FBS)', '数値を入力して下さい', '000',
-                          'mg/dl', _calculate1),
+                      FormTmp1(
+                          _fIt1,
+                          '空腹時インスリン値 (IRI)',
+                          AppLocalizations.of(context)!.valMessage,
+                          '0.0',
+                          'μU/mL',
+                          _calculate1),
+                      FormTmp1(
+                          _fIt2,
+                          '空腹時血糖値 (FBS)',
+                          AppLocalizations.of(context)!.valMessage,
+                          '000',
+                          'mg/dl',
+                          _calculate1),
 
                       //MySelectRow3func1(_tc2, 'アルブミン値', '<2.8g/dL', '2.8-3.5g/dL', '>3.5g/dL', '+3', '+2', '+1', _calculate1),
                       //CalcButton(_formKey, _calculate1, '計算'),
                       //if (_notZero) ...[
-                      InpPadding('結果'),
+                      InpPadding(AppLocalizations.of(context)!.results),
 
                       ResContainer2('HOMA-IR (インスリン抵抗性指数)', _fSg1, ''),
                       ResContainer2('HOMA-β (インスリン自己分泌能)', _fSg2, '%'),
@@ -223,7 +234,9 @@ class _Hom_calState extends State<Hom_cal> {
                   ),
                 ),
               ),
+              //adSetPlace14s
               adContainer2,
+              //adSetPlace14e
             ],
           ),
         ),

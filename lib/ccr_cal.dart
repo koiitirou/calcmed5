@@ -6,6 +6,12 @@ import 'adsList.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+//adSetPlace11s
+BannerAd myBanner = Banner2;
+//BannerAd myBanner2 = Rectangle1;
+BannerAdListener listener = listener1;
+//adSetPlace11e
+
 List<bool> _sc0 = [
   false,
   true,
@@ -95,8 +101,26 @@ class _Ccr_calState extends State<Ccr_cal> {
 
   //SingingCharacter? _character = SingingCharacter.male;
 
+  //adSetPlace12s
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    myBanner.dispose();
+    super.dispose();
+  }
+
+//adSetPlace12e
   @override
   Widget build(BuildContext context) {
+    //adSetPlace13s
+    myBanner.load();
+    final AdWidget adWidget = AdWidget(ad: myBanner);
+    final Container adContainer2 = adContainer1(adWidget, myBanner);
+    //adSetPlace13e
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -132,33 +156,42 @@ class _Ccr_calState extends State<Ccr_cal> {
                       FormTmp1(
                           ageController,
                           AppLocalizations.of(context)!.age,
-                          '数値を入力して下さい',
+                          AppLocalizations.of(context)!.valMessage,
                           '00',
                           AppLocalizations.of(context)!.years,
                           _calculateCCR),
                       FormTmp1(
                           weiController,
                           AppLocalizations.of(context)!.weight,
-                          '数値を入力して下さい',
+                          AppLocalizations.of(context)!.valMessage,
                           '00.0',
                           'kg',
                           _calculateCCR),
-                      FormTmp1(creController, AppLocalizations.of(context)!.cre,
-                          '数値を入力して下さい', '0.00', 'mg/dL', _calculateCCR),
+                      FormTmp1(
+                          creController,
+                          AppLocalizations.of(context)!.cre,
+                          AppLocalizations.of(context)!.valMessage,
+                          '0.00',
+                          'mg/dL',
+                          _calculateCCR),
 
                       InpPadding(AppLocalizations.of(context)!.results),
                       ResContainer2(AppLocalizations.of(context)!.ccr,
                           _ccrString, '  mL/min'),
                       ResContainer2(AppLocalizations.of(context)!.egfr,
                           _egfString, '  mL/min/1.73㎡'),
-                      ResContainer1('GFR区分', _infoText),
+                      ResContainer1(
+                          AppLocalizations.of(context)!.gfrcat, _infoText),
                       calcPadding(
-                          '*CCR推算式 (Cockcroft-Gaultの式)\n  男性：(140 - 年齢) * 体重 / (72 * 血清クレアチニン値)\n  女性：(140 - 年齢) * 体重 / (72 * 血清クレアチニン値) * 0.85'),
+                          '*CCR計算式 (Cockcroft-Gaultの式)\n  男性：(140 - 年齢) * 体重 / (72 * 血清クレアチニン値)\n  女性：(140 - 年齢) * 体重 / (72 * 血清クレアチニン値) * 0.85'),
                       calcPadding(
                           '*eGFR計算式(成人の場合)\n  男性：194 * (血清クレアチニン値＾-1.094) * (年齢＾-0.287)\n  女性：194 * (血清クレアチニン値＾-1.094) * (年齢＾-0.287) * 0.739'),
                     ],
                   )),
             ),
+            //adSetPlace14s
+            adContainer2,
+            //adSetPlace14e
           ],
         ),
       ),

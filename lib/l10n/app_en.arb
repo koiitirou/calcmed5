@@ -3,8 +3,8 @@
     "appTitle": "Medical Calculator",
     "yes" : "Yes",
     "no" :"No",
-    "female": "female",
-    "male": "male",
+    "female": "Female",
+    "male": "Male",
     "sex":"Sex",
     "age":"Age",
     "weight":"Weight",
@@ -14,5 +14,19 @@
     "gfrcat":"GFR categories in CKD",
     "inputs":"Inputs",
     "results":"Results",
-    "years":"years"
+    "years":"years",
+    "height":"Height",
+    "category":"Category",
+    "volumeFluid":"Volume of fluid",
+    "amountDrug":"Amount of drug",
+    "desiredDose1":"Desired dose",
+    "desiredDose2":"Desired dose",
+    "infusionRate":"Infusion rate",
+    "infusionDose":"Infusion dose",
+    "requiredAmount":"Required amount/day",
+    "requiredBag":"Required bag/day",
+    "mlDay":"ml/day",
+    "bagDay":"bag/day",
+    "valMessage":"Invalid value"
+
 }

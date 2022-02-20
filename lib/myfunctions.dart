@@ -35,11 +35,11 @@ class Cc1 {
 class Cc1s {
   static List Cc1_items = [
     if (mylocale1 == 'ja')
-      Cc1('101', 'γ計算（ガンマ計算）', 'が', '一般', 'い', '/Gam_cal', 'γ計算（ガンマ計算）',
+      Cc1('101', 'γ計算（点滴速度計算）', 'が', '一般', 'い', '/Gam_cal', 'γ計算（ガンマ計算）',
           '薬剤点滴速度計算（シリンジポンプ）', 'g'),
     if (mylocale1 != 'ja')
-      Cc1('101', 'γ calculator', 'g', 'General', 'ge', '/Gam_cal',
-          'Infusion calculator (γ)', 'Infusion rates calculation', 'g'),
+      Cc1('101', 'Infusion dose calculation', 'g', 'General', 'ge', '/Gam_cal',
+          'Infusion dose calculation', 'Desired dose and rate', 'g'),
 
     ///
     if (mylocale1 == 'ja')
