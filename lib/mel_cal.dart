@@ -45,7 +45,7 @@ class _Mel_calState extends State<Mel_cal> {
   String _melScoreNaText = '';
   String _mortality = '';
   double _melScore = 0.0;
-  double _melScoreNa = 0.0;
+  final double _melScoreNa = 0.0;
 
   bool _notZero = false;
 
@@ -103,7 +103,7 @@ class _Mel_calState extends State<Mel_cal> {
           _mortality = '71.3 % (40点～) [1]';
         }
         _melScoreNaText = '';
-        if (!formInput4.text.isEmpty) {
+        if (formInput4.text.isNotEmpty) {
           double formInput4num = double.parse(formInput4.text);
           formInput4num = (formInput4num < 125 ? 125 : formInput4num);
           formInput4num = (formInput4num > 137 ? 137 : formInput4num);
@@ -161,7 +161,7 @@ class _Mel_calState extends State<Mel_cal> {
             Expanded(
               key: _formKey,
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: [
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   MySelect1func1(
@@ -198,7 +198,7 @@ class _Mel_calState extends State<Mel_cal> {
                   //if (_notZero) ...[
                   InpPadding(AppLocalizations.of(context)!.results),
                   ResContainer2('MELDスコア', _melScoreText, '  点'),
-                  ResContainer1('成人肝移植予定患者におけるMELDと3ヶ月後の生存率の関係', '$_mortality'),
+                  ResContainer1('成人肝移植予定患者におけるMELDと3ヶ月後の生存率の関係', _mortality),
                   ResContainer2('MELD Naスコア', _melScoreNaText, '  点'),
                   //ResContainer('eGFR, 推算糸球体濾過量', '$_egfString mL/min/1.73㎡'),
                   //ResContainer('GFR区分', _infoText),
@@ -216,8 +216,8 @@ class _Mel_calState extends State<Mel_cal> {
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

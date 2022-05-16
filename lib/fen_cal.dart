@@ -120,7 +120,7 @@ class _Fen_calState extends State<Fen_cal> {
           children: [
             Expanded(
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: <Widget>[
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   FormTmp1(
@@ -164,8 +164,8 @@ class _Fen_calState extends State<Fen_cal> {
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

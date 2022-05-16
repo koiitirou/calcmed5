@@ -38,12 +38,12 @@ class Bay_cal extends StatefulWidget {
 }
 
 class _Bay_calState extends State<Bay_cal> {
-  TextEditingController _fIt1 = TextEditingController();
-  TextEditingController _fIt2 = TextEditingController();
-  TextEditingController _fIt3 = TextEditingController();
-  TextEditingController _fIt4 = TextEditingController();
-  TextEditingController _fIt5 = TextEditingController();
-  TextEditingController _fIt6 = TextEditingController();
+  final TextEditingController _fIt1 = TextEditingController();
+  final TextEditingController _fIt2 = TextEditingController();
+  final TextEditingController _fIt3 = TextEditingController();
+  final TextEditingController _fIt4 = TextEditingController();
+  final TextEditingController _fIt5 = TextEditingController();
+  final TextEditingController _fIt6 = TextEditingController();
 
   List<bool> _sc1 = List.from(_sc0);
   List<bool> _tc1 = List.from(_tc0);
@@ -67,7 +67,7 @@ class _Bay_calState extends State<Bay_cal> {
   double _fOt5 = 0;
   double _fOt6 = 0;
 
-  bool _notZero = false;
+  final bool _notZero = false;
 
   void _resetFields() {
     setState(() {
@@ -207,7 +207,7 @@ class _Bay_calState extends State<Bay_cal> {
           children: [
             Expanded(
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: [
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   //MySelect1func1wide1( _sc1, '', '小児用', '成人用', '60滴=1ml', '20滴=1ml', _calculate1),
@@ -258,8 +258,8 @@ class _Bay_calState extends State<Bay_cal> {
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

@@ -67,7 +67,7 @@ class _Gam_calState extends State<Gam_cal> {
   double _fOt5 = 0;
   double _fOt6 = 0;
 
-  bool _notZero = false;
+  final bool _notZero = false;
 
   void _resetFields() {
     setState(() {
@@ -321,8 +321,8 @@ class _Gam_calState extends State<Gam_cal> {
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

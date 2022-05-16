@@ -162,7 +162,7 @@ class _Chp_calState extends State<Chp_cal> {
             Expanded(
               key: _formKey,
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: [
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   MySelectRow3func1(_tc1, '総ビリルビン値', '>3mg/dL', '2-3mg/dL',
@@ -201,8 +201,8 @@ class _Chp_calState extends State<Chp_cal> {
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

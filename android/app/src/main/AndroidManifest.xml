@@ -16,14 +16,14 @@
     <action android:name="android.intent.action.SENDTO" />
     <data android:scheme="smsto" />
   </intent>
-  <!-- If your app sends emails -->
+  <!-- If your app sends emails android:label="@string/app_name" -->
   <intent>
     <action android:name="android.intent.action.SEND" />
     <data android:mimeType="*/*" />
   </intent>
 </queries>
    <application
-        android:label="@string/app_name"
+        android:label="医療計算ツール"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

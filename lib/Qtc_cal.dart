@@ -45,7 +45,7 @@ class _Qtc_calState extends State<Qtc_cal> {
   String fOt2Text = '';
   String fOt3Text = '';
   String fOt4Text = '';
-  String _fSg1 = '';
+  final String _fSg1 = '';
   double fOt1 = 0.0;
   double fOt2 = 0.0;
   double fOt3 = 0.0;
@@ -139,7 +139,7 @@ class _Qtc_calState extends State<Qtc_cal> {
             Expanded(
               //key: _formKey,
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: [
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   //MySelect1(_sc1, '2週間以内の透析', 'あり', 'なし', '', ''),
@@ -189,8 +189,8 @@ class _Qtc_calState extends State<Qtc_cal> {
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14es
           ],
         ),

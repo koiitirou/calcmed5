@@ -35,8 +35,8 @@ class _Chv_calState extends State<Chv_cal> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String _ch2String = '0';
-  String _infoText = '';
-  double _imc = 0.0;
+  final String _infoText = '';
+  final double _imc = 0.0;
   bool _notZero = false;
   int _ch2Score = 0;
   String _strokeRate1 = '1.9';
@@ -164,7 +164,7 @@ class _Chv_calState extends State<Chv_cal> {
               child: Form(
                 key: _formKey,
                 child: ListView(
-                    padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                    padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                     children: <Widget>[
                       InpPadding(AppLocalizations.of(context)!.inputs),
                       MySelect1func1(
@@ -196,8 +196,8 @@ class _Chv_calState extends State<Chv_cal> {
                     ]),
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

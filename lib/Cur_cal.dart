@@ -39,12 +39,12 @@ class Cur_cal extends StatefulWidget {
 }
 
 class _Cur_calState extends State<Cur_cal> {
-  TextEditingController _fIt1 = TextEditingController();
-  TextEditingController _fIt2 = TextEditingController();
-  TextEditingController _fIt3 = TextEditingController();
-  TextEditingController _fIt4 = TextEditingController();
-  TextEditingController _fIt5 = TextEditingController();
-  TextEditingController _fIt6 = TextEditingController();
+  final TextEditingController _fIt1 = TextEditingController();
+  final TextEditingController _fIt2 = TextEditingController();
+  final TextEditingController _fIt3 = TextEditingController();
+  final TextEditingController _fIt4 = TextEditingController();
+  final TextEditingController _fIt5 = TextEditingController();
+  final TextEditingController _fIt6 = TextEditingController();
 
   List<bool> _sc1 = List.from(_sc0);
   List<bool> _sc2 = List.from(_sc0);
@@ -73,7 +73,7 @@ class _Cur_calState extends State<Cur_cal> {
   double _fOt5 = 0;
   double _fOt6 = 0;
 
-  bool _notZero = false;
+  final bool _notZero = false;
 
   void _resetFields() {
     setState(() {
@@ -219,7 +219,7 @@ class _Cur_calState extends State<Cur_cal> {
               child: Form(
                 key: _formKey,
                 child: ListView(
-                  padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                  padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                   children: [
                     InpPadding(AppLocalizations.of(context)!.inputs),
                     MySelect1func1(_sc1, '錯乱 (Confusion)', 'はい', 'いいえ', '+1',
@@ -256,8 +256,8 @@ class _Cur_calState extends State<Cur_cal> {
                 ),
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

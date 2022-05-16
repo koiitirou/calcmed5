@@ -117,7 +117,7 @@ class _Ldl_calState extends State<Ldl_cal> {
           children: [
             Expanded(
               child: ListView(
-                padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                 children: <Widget>[
                   InpPadding(AppLocalizations.of(context)!.inputs),
                   FormTmp1(
@@ -146,12 +146,12 @@ class _Ldl_calState extends State<Ldl_cal> {
                   ResContainer2(
                       'LDLコレステロール(Friedewald推定式)', _outputString, '  mg/dL'),
                   ResContainer1(
-                      AppLocalizations.of(context)!.category, '$_infoText'),
+                      AppLocalizations.of(context)!.category, _infoText),
                 ],
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

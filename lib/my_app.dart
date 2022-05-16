@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
     const locale2 = Locale('en', '');
     // ignore: prefer_const_constructors
     return GetMaterialApp(
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate, // Add this line
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -65,22 +65,22 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => MyHomePage()),
-        GetPage(name: '/Bmi_cal', page: () => Bmi_cal()),
-        GetPage(name: '/Ccr_cal', page: () => Ccr_cal()),
-        GetPage(name: '/Ch2_cal', page: () => Ch2_cal()),
-        GetPage(name: '/Chv_cal', page: () => Chv_cal()),
-        GetPage(name: '/Ldl_cal', page: () => Ldl_cal()),
-        GetPage(name: '/Fen_cal', page: () => Fen_cal()),
-        GetPage(name: '/Has_cal', page: () => Has_cal()),
-        GetPage(name: '/Mel_cal', page: () => Mel_cal()),
-        GetPage(name: '/Qtc_cal', page: () => Qtc_cal()),
-        GetPage(name: '/Chp_cal', page: () => Chp_cal()),
-        GetPage(name: '/Gam_cal', page: () => Gam_cal()),
-        GetPage(name: '/Div_cal', page: () => Div_cal()),
-        GetPage(name: '/Bay_cal', page: () => Bay_cal()),
-        GetPage(name: '/Adr_cal', page: () => Adr_cal()),
-        GetPage(name: '/Cur_cal', page: () => Cur_cal()),
-        GetPage(name: '/Hom_cal', page: () => Hom_cal()),
+        GetPage(name: '/Bmi_cal', page: () => const Bmi_cal()),
+        GetPage(name: '/Ccr_cal', page: () => const Ccr_cal()),
+        GetPage(name: '/Ch2_cal', page: () => const Ch2_cal()),
+        GetPage(name: '/Chv_cal', page: () => const Chv_cal()),
+        GetPage(name: '/Ldl_cal', page: () => const Ldl_cal()),
+        GetPage(name: '/Fen_cal', page: () => const Fen_cal()),
+        GetPage(name: '/Has_cal', page: () => const Has_cal()),
+        GetPage(name: '/Mel_cal', page: () => const Mel_cal()),
+        GetPage(name: '/Qtc_cal', page: () => const Qtc_cal()),
+        GetPage(name: '/Chp_cal', page: () => const Chp_cal()),
+        GetPage(name: '/Gam_cal', page: () => const Gam_cal()),
+        GetPage(name: '/Div_cal', page: () => const Div_cal()),
+        GetPage(name: '/Bay_cal', page: () => const Bay_cal()),
+        GetPage(name: '/Adr_cal', page: () => const Adr_cal()),
+        GetPage(name: '/Cur_cal', page: () => const Cur_cal()),
+        GetPage(name: '/Hom_cal', page: () => const Hom_cal()),
       ],
     );
   }
@@ -113,9 +113,9 @@ class _MyHomePageState extends State<MyHomePage>
   int currentIndex = 0;
 
   final screens = [
-    AllPage(),
-    CategoryPage(),
-    FavoritePage(),
+    const AllPage(),
+    const CategoryPage(),
+    const FavoritePage(),
   ];
   ////categoryPage
 
@@ -156,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage>
                 () => currentIndex = index,
               ),
           iconSize: 20,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: '',
@@ -170,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage>
               label: '',
             ),
           ]),
-      bottomSheet: adContainer2,
+      //bottomSheet: adContainer2,
     );
   }
 }
@@ -181,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage>
 //////////////////////////////
 ////////AllPage
 class AllPage extends StatefulWidget {
-  AllPage({Key? key}) : super(key: key);
+  const AllPage({Key? key}) : super(key: key);
 
   @override
   _AllPageState createState() => _AllPageState();
@@ -245,8 +245,8 @@ class _AllPageState extends State<AllPage> {
                                   });
                                 },
                               ), // icon-1
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 7, 0, 0),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                                 child: Icon(Icons.navigate_next),
                               ) // icon-2
                             ],
@@ -263,11 +263,11 @@ class _AllPageState extends State<AllPage> {
                 );
               }),
         ),
-        ConstrainedBox(
+/*         ConstrainedBox(
           constraints: BoxConstraints.expand(
               height: Banner1.size.height.toDouble() + adPadding1 * 2),
           //height: 0),
-        )
+        ) */
         //con1
       ],
     );
@@ -277,7 +277,7 @@ class _AllPageState extends State<AllPage> {
 //////////////////////////////
 ////////Favorite
 class FavoritePage extends StatefulWidget {
-  FavoritePage({Key? key, required}) : super(key: key);
+  const FavoritePage({Key? key, required}) : super(key: key);
 
   @override
   _FavoritePageState createState() => _FavoritePageState();
@@ -326,8 +326,8 @@ class _FavoritePageState extends State<FavoritePage> {
                               //box1!.put(Cc1s.Cc1_items[index].route_id, z1[index]);
                             },
                           ), // icon-1
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 7, 0, 0),
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                             child: Icon(Icons.navigate_next),
                           ) // icon-2
                         ],
@@ -342,11 +342,11 @@ class _FavoritePageState extends State<FavoritePage> {
                 );
               }),
         ),
-        ConstrainedBox(
+/*         ConstrainedBox(
           constraints: BoxConstraints.expand(
               height: Banner1.size.height.toDouble() + adPadding1 * 2),
           //height: 0),
-        )
+        ) */
         //con1
       ],
     );
@@ -359,7 +359,7 @@ class _FavoritePageState extends State<FavoritePage> {
 /////////////////////////////////
 ////////Category
 class CategoryPage extends StatefulWidget {
-  CategoryPage({Key? key, required}) : super(key: key);
+  const CategoryPage({Key? key, required}) : super(key: key);
 
   @override
   _CategoryPageState createState() => _CategoryPageState();
@@ -430,8 +430,8 @@ class _CategoryPageState extends State<CategoryPage> {
                                           //box1!.put(Cc1s.Cc1_items[index].route_id, z1[index]);
                                         },
                                       ), // icon-1
-                                      Padding(
-                                        padding: const EdgeInsets.fromLTRB(
+                                      const Padding(
+                                        padding: EdgeInsets.fromLTRB(
                                             0, 7, 0, 0),
                                         child: Icon(Icons.navigate_next),
                                       ) // icon-2
@@ -450,11 +450,11 @@ class _CategoryPageState extends State<CategoryPage> {
                 );
               }),
         ),
-        ConstrainedBox(
+       /*  ConstrainedBox(
           constraints: BoxConstraints.expand(
               height: Banner1.size.height.toDouble() + adPadding1 * 2),
           //height: 0),
-        )
+        ) */
         //con1
       ],
     );

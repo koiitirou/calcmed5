@@ -139,7 +139,7 @@ class _Ccr_calState extends State<Ccr_cal> {
               child: Form(
                   key: _formKey,
                   child: ListView(
-                    padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                    padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                     children: [
                       InpPadding(AppLocalizations.of(context)!.inputs),
                       //AppLocalizations.of(context)!.appTitle
@@ -189,8 +189,8 @@ class _Ccr_calState extends State<Ccr_cal> {
                     ],
                   )),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),

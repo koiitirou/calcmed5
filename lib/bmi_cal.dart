@@ -129,7 +129,7 @@ class _Bmi_calState extends State<Bmi_cal> {
               child: Form(
                 key: _formKey,
                 child: ListView(
-                    padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                    padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
                     children: <Widget>[
                       InpPadding(AppLocalizations.of(context)!.inputs),
                       FormTmp1(
@@ -151,12 +151,12 @@ class _Bmi_calState extends State<Bmi_cal> {
                       ResContainer2(
                           'BMI(Body Mass Index)', _imcString, '  kg/㎡'),
                       ResContainer1(
-                          AppLocalizations.of(context)!.category, '$_infoText'),
+                          AppLocalizations.of(context)!.category, _infoText),
                     ]),
               ),
             ),
-            //adSetPlace14s
-            adContainer2,
+//adSetPlace14s
+            //adContainer2,
             //adSetPlace14e
           ],
         ),
